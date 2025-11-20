@@ -1,5 +1,70 @@
- 💫 About Me:
-<h1 align="center">👋 Hey, I'm <strong>Leo Chrisben Evans</strong></h1><br><br><p align="center"><br>  🚀 <strong>Full-Stack Developer</strong> • 🎨 UI/UX Enthusiast • 🤖 AI & Automation Explorer  <br></p><br><br><p align="center"><br>  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /><br>  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /><br>  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" /><br>  <img src="https://img.shields.io/badge/MySQL-00618A?style=for-the-badge&logo=mysql&logoColor=white" /><br>  <img src="https://img.shields.io/badge/Node.js-3C873A?style=for-the-badge&logo=node.js&logoColor=white" /><br>  <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" /><br></p><br><br>---<br><br> 🌟 About Me<br><br>I'm a passionate developer who loves creating clean, scalable, and practical real-world applications.  <br>From crafting React and Next.js dashboards to building Flask + MySQL backends, my work blends strong engineering with smooth UI/UX.<br><br>I’ve built systems involving:<br><br>- 🎧 Audio transcription & summarization workflows<br>- 📁 Full meeting-management dashboards<br>- 📊 Real-time analytics & inventory management<br>- 🔐 Auth systems with modern best practices<br>- 🧠 AI-assisted automation and multi-agent workflows<br>- 🏨 Hotel management interfaces<br>- 🛒 E-commerce product & stock management<br>- 🧪 API design, testing, and documentation with Swagger<br><br>I focus on production-quality code, clean architecture, and solving problems that actually matter.<br><br>---<br><br> 🧰 Tech Toolbox<br><br> 🚀 Frontend<br>- React, Next.js  <br>- Bootstrap, Bootstrap Icons, Animate.css  <br>- CSS frameworks + custom UI components  <br><br> 🔧 Backend<br>- Flask  <br>- Node.js / Express  <br>- PyMySQL  <br>- REST APIs, Swagger (OpenAPI)  <br><br> 🧠 AI & Automation<br>- Multi-agent systems  <br>- Workflow automation  <br>- Audio processing pipelines  <br><br> 🛠️ Tools & Extras<br>- Git & GitHub  <br>- Insomnia / Postman  <br>- OOP Patterns  <br>- SQL databases  <br>- Docker (basic)<br><br>---<br><br> 📌 Highlighted Skills<br><br>✨ Strong at building interactive dashboards  <br>✨ Clean, structured backend logic  <br>✨ Database design & optimization  <br>✨ File handling, uploads, and processing  <br>✨ Debugging and system refactoring  <br>✨ Real-world project architecture  <br>✨ Mixing AI with practical software engineering  <br><br>---<br><br> 📈 Current Focus<br><br>🔥 Building more AI-powered developer tools  <br>🔥 Strengthening my portfolio with real-world full-stack systems  <br>🔥 Designing automated workflows using modern AI agents  <br>🔥 Pushing clean UI/UX with scalable component architectures  <br><br>---<br><br> 🧩 Fun Facts<br><br>- I enjoy turning boring paper systems into elegant digital apps.  <br>- QR-based event registration? I’m already working on it.  <br>- I learn by building real products, not tutorial-only apps.  <br><br>---<br><br> 📫 Let’s Connect<br><br><p align="left"><br>  <!-- Add your real links --><br>  <a href="https://github.com/yourusername"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" /></a><br>  <a href="https://linkedin.com/in/yourprofile"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" /></a><br>  <a href="mailto:youremail@example.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" /></a><br></p><br><br>---<br><br> ⭐ If you like my work, consider giving a star to one of my repos!<br>
+<h1 align="center">👋 Hey, I'm <strong>Leo Chrisben Evans</strong></h1>
+
+<p align="center">
+  🚀 <strong>Full-Stack Developer</strong> • 🎨 UI/UX Enthusiast • 🤖 AI & Automation Explorer
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
+  <img src="https://img.shields.io/badge/MySQL-00618A?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Node.js-3C873A?style=for-the-badge&logo=node.js&logoColor=white" alt="Node" />
+  <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" />
+</p>
+
+
+
+<!-- Animated skills marquee (save file at ./assets/skills-marquee.svg) -->
+<p align="center">
+  <img src="./assets/skills-marquee.svg" alt="Skills marquee" />
+</p>
+
+
+
+ 🌟 About Me (short)
+I build production-grade full-stack systems with a focus on clean architecture, UI/UX, and AI-assisted automation — dashboards, real-time analytics, and audio-processing pipelines included.
+
+
+
+ 🧰 Tech Toolbox
+Frontend: React, Next.js, Bootstrap, Animate.css, Bootstrap Icons  
+Backend: Flask, Node.js/Express, PyMySQL, REST APIs, OpenAPI/Swagger  
+AI & Automation: Multi-agent workflows, audio transcription & pipelines  
+Tools: Git, Docker, Insomnia/Postman, SQL databases
+
+
+
+ 📌 Highlighted Work
+- Meeting-management systems: uploads, transcription, summaries, action items.  
+- Real-time inventory & analytics dashboards.  
+- AI-driven automation and workflow tooling.
+
+
+
+ 📈 Live GitHub Stats
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=radical" alt="GitHub stats" />
+  &nbsp;
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=radical" alt="Top languages" />
+</p>
+
+
+
+ 🧩 Fun Facts
+- I turn paper-based flows into modern digital experiences.  
+- Currently prototyping QR-based event registration and AI meeting assistants.  
+- I learn by shipping — real products > tutorials.
+
+
+
+ 📫 Connect
+[GitHub](https://github.com/Chrisleo-16) • [LinkedIn]((https://www.linkedin.com/in/leo-chrisben-evans-a49570322/)) • youremail@example.com
+
+
+
+> ⭐ If you like my work, consider giving a star to one of my repos!
+
 
 
  🌐 Socials:
@@ -21,7 +86,7 @@
  🔝 Top Contributed Repo
 ![](https://github-contributor-stats.vercel.app/api?username=Chrisleo-16&limit=5&theme=dark&combine_all_yearly_contributions=true)
 
----
+
 [![](https://visitcount.itsvg.in/api?id=Chrisleo-16&icon=0&color=0)](https://visitcount.itsvg.in)
 
    💰 You can help me by Donating
