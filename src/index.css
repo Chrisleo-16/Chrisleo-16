@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Design System: Minimalist Cream & Black
+  Light mode  → cream background (#F5F0E8), near-black text (#1A1A1A)
+  Dark mode   → soft charcoal background (#1C1C1C), cream text (#F5F0E8)
+  Accent      → warm black / deep charcoal for interactive elements
+  Fonts       → Playfair Display (headings) · Inter (body)
+*/
+
+@layer base {
+  :root {
+    /* Cream light theme */
+    --background: 40 30% 95%;          /* #F5F0E8 cream */
+    --foreground: 0 0% 10%;            /* #1A1A1A near-black */
+
+    --card: 40 25% 97%;                /* slightly lighter cream */
+    --card-foreground: 0 0% 10%;
+
+    --popover: 40 25% 97%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 0% 10%;               /* near-black as primary */
+    --primary-foreground: 40 30% 95%;  /* cream on black */
+
+    --secondary: 40 20% 90%;           /* muted cream */
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 40 15% 88%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 10%;
+    --accent-foreground: 40 30% 95%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 15% 82%;
+    --input: 40 15% 82%;
+    --ring: 0 0% 10%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 10%), hsl(0 0% 25%));
+    --gradient-subtle: linear-gradient(180deg, hsl(40 30% 95%), hsl(40 20% 92%));
+    --shadow-elegant: 0 10px 40px -10px hsl(0 0% 10% / 0.12);
+    --shadow-glow: 0 0 40px hsl(0 0% 10% / 0.08);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Soft charcoal dark theme */
+    --background: 0 0% 11%;            /* #1C1C1C soft charcoal */
+    --foreground: 40 30% 93%;          /* #F0EAD6 warm cream */
+
+    --card: 0 0% 14%;                  /* slightly lighter charcoal */
+    --card-foreground: 40 30% 93%;
+
+    --popover: 0 0% 14%;
+    --popover-foreground: 40 30% 93%;
+
+    --primary: 40 30% 93%;             /* cream as primary in dark */
+    --primary-foreground: 0 0% 11%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 40 30% 93%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 40 30% 93%;
+    --accent-foreground: 0 0% 11%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 40 30% 93%;
+
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 40 30% 93%;
+
+    /* Dark mode tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(40 30% 93%), hsl(40 20% 80%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 11%), hsl(0 0% 14%));
+    --shadow-elegant: 0 10px 40px -10px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(40 30% 93% / 0.06);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    max-width: 100vw;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
