@@ -99,7 +99,7 @@ const Navbar = () => {
             whileHover={{ opacity: 0.85, scale: 1.03 }}
             whileTap={{ scale: 0.96 }}
           >
-            Hire Me
+            Solve with Chris
           </motion.button>
         </div>
       </motion.div>
