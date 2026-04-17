@@ -10,6 +10,7 @@ const skills = [
   { name: "Flask",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg", category: "Backend" },
   { name: "Supabase",    logo: "/logos/supabase-logo-icon.png", category: "Database" },
   { name: "MySQL",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", category: "Database" },
+  { name: "Milvus",      logo: "/logos/idD_GfR1jh_1776443198737.png", category: "Database" },
   { name: "Tailwind",    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", category: "Frontend" },
   { name: "JavaScript",  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", category: "Language" },
   { name: "HTML5",       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", category: "Frontend" },
@@ -21,6 +22,8 @@ const skills = [
   { name: "Postman",     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg", category: "Tools" },
   { name: "ML / AI",     logo: "https://cdn-icons-png.flaticon.com/512/4149/4149677.png", category: "AI" },
   { name: "MPESA API",   logo: "https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg", category: "Payments" },
+  { name: "Africa's Talking", logo: "/logos/idcoK1KBDx_logos.png", category: "Communication API's" },
+  { name: "PayHero",     logo: "/logos/idiGxjfgay_logos.png", category: "Payments" },
   { name: "Insomnia",    logo: "https://raw.githubusercontent.com/get-icon/geticon/master/icons/insomnia.svg", category: "Tools" },
 ];
 

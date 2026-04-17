@@ -207,7 +207,7 @@ const Hero = () => {
             </motion.button>
 
             <motion.a
-              href="/logos/LEO CHRISBEN (1).pdf"
+              href="/logos/LEO CHRISBEN EVANS.pdf"
               download="LEOCHRISBENEVANS.pdf"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold border border-border text-foreground hover:bg-secondary transition-all"
               style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
