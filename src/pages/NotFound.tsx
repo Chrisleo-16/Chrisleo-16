@@ -1,24 +1,55 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Seo from "@/components/kit/Seo";
+import { FieldTag, Label } from "@/components/kit/Editorial";
+import { LineReveal, Reveal } from "@/components/kit/motion";
 
-const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
+export default function NotFound() {
+  const { pathname } = useLocation();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
-        </a>
-      </div>
-    </div>
-  );
-};
+    <>
+      <Seo
+        title="Not in the archive (404)"
+        description="This page isn't part of the archive — yet."
+        path={pathname}
+      />
 
-export default NotFound;
+      <div className="gutter flex min-h-[calc(100svh-var(--rail-h))] flex-col justify-center pt-[var(--nav-h)]">
+        <Reveal>
+          <FieldTag>404 — not filed</FieldTag>
+        </Reveal>
+
+        <LineReveal
+          as="h1"
+          delay={0.08}
+          lines={["This one isn't", "in the archive."]}
+          className="pt-8 text-display-lg font-medium"
+        />
+
+        <Reveal delay={0.2} className="max-w-[40ch] pt-7">
+          <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">
+            Which is either a broken link or a page I haven&apos;t written yet. Both happen.
+          </p>
+          <Label className="mt-4 block">Requested: {pathname}</Label>
+        </Reveal>
+
+        <Reveal delay={0.28} className="flex flex-wrap gap-x-8 gap-y-3 pt-10">
+          {[
+            { to: "/", label: "Start at the beginning" },
+            { to: "/#builds", label: "Case files" },
+            { to: "/lab", label: "The lab" },
+            { to: "/now", label: "What I'm doing now" },
+          ].map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className="pen-link ui-label"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </Reveal>
+      </div>
+    </>
+  );
+}

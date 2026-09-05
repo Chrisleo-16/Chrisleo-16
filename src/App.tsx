@@ -1,27 +1,52 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { Toaster } from "@/components/ui/toaster";
+import Layout from "@/components/layout/Layout";
+import { LensProvider } from "@/lib/lens";
+import Index from "@/pages/Index";
 
-const queryClient = new QueryClient();
+/**
+ * The home page ships in the main bundle; everything else is split, because a
+ * first visitor almost always lands on the story and scrolls.
+ */
+const BuildDetail = lazy(() => import("@/pages/BuildDetail"));
+const LabPage = lazy(() => import("@/pages/LabPage"));
+const NotesPage = lazy(() => import("@/pages/NotesPage"));
+const NoteDetail = lazy(() => import("@/pages/NoteDetail"));
+const AboutPage = lazy(() => import("@/pages/AboutPage"));
+const NowPage = lazy(() => import("@/pages/NowPage"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+/** Holds the fold while a route chunk loads — no spinner, no layout shift. */
+const RouteFallback = () => (
+  <div className="min-h-[60svh]" role="status" aria-live="polite">
+    <span className="sr-only">Loading</span>
+  </div>
 );
 
-export default App;
+export default function App() {
+  return (
+    <TooltipProvider delayDuration={200}>
+      <BrowserRouter>
+        <LensProvider>
+          <Suspense fallback={<RouteFallback />}>
+            <Routes>
+              <Route element={<Layout />}>
+                <Route path="/" element={<Index />} />
+                <Route path="/builds/:slug" element={<BuildDetail />} />
+                <Route path="/lab" element={<LabPage />} />
+                <Route path="/notes" element={<NotesPage />} />
+                <Route path="/notes/:slug" element={<NoteDetail />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/now" element={<NowPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </LensProvider>
+      </BrowserRouter>
+      <Toaster />
+    </TooltipProvider>
+  );
+}

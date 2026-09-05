@@ -1,30 +1,81 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chris Dev | Software Engineer & Problem Solver</title>
-    <meta name="description" content="Professional portfolio showcasing innovative software solutions. Experienced software engineer building impactful applications that solve real-world problems." />
-    <meta name="author" content="Software Engineer" />
-    <meta name="keywords" content="software engineer, web developer, portfolio, react, typescript, full stack developer" />
 
-    <meta property="og:title" content="Portfolio | Software Engineer & Problem Solver" />
-    <meta property="og:description" content="Professional portfolio showcasing innovative software solutions and real-world problem solving." />
+    <title>Leo Chrisben Evans — Field Notes of a Builder</title>
+    <meta
+      name="description"
+      content="An open notebook, not a résumé. Leo Chrisben Evans — software engineer and data science student in Nairobi — documents the questions, builds, failures and pivots behind LEA, fintech experiments, AI systems and alternative data."
+    />
+    <meta name="author" content="Leo Chrisben Evans" />
+    <meta
+      name="keywords"
+      content="Leo Chrisben Evans, software engineer Nairobi, data science, fintech Kenya, rent guarantee, LEA Residency, M-Pesa integration, AI automation, alternative data"
+    />
+    <link rel="canonical" href="https://leochrisbenevans.vercel.app/" />
+
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="favicon.ico" />
+    <meta property="og:site_name" content="Leo Chrisben Evans" />
+    <meta property="og:title" content="Leo Chrisben Evans — Field Notes of a Builder" />
+    <meta
+      property="og:description"
+      content="I'm trying to figure out what technology can actually do. Questions, experiments, builds, failures and the pivots between them."
+    />
+    <meta property="og:url" content="https://leochrisbenevans.vercel.app/" />
+    <meta property="og:image" content="https://leochrisbenevans.vercel.app/media/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="favicon.ico" />
+    <meta name="twitter:title" content="Leo Chrisben Evans — Field Notes of a Builder" />
+    <meta
+      name="twitter:description"
+      content="I'm trying to figure out what technology can actually do. An unfolding archive of builds, failures and pivots."
+    />
+    <meta name="twitter:image" content="https://leochrisbenevans.vercel.app/media/og-cover.jpg" />
 
-    <!-- Google Fonts: Playfair Display (headings) + Inter (body) -->
+    <meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f2e2" media="(prefers-color-scheme: light)" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <!-- Typography
+         Display + body -> Plus Jakarta Sans
+         Metadata       -> JetBrains Mono
+         Storytelling   -> Newsreader (pull quotes only) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f%5B%5D=switzer@400,500,600,700&display=swap"
+    />
+
+    <!-- Set the theme before first paint so the archive never flashes -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("lce-theme");
+          var dark = saved
+            ? saved === "dark"
+            : !window.matchMedia("(prefers-color-scheme: light)").matches;
+          document.documentElement.classList.toggle("dark", dark);
+        } catch (e) {}
+      })();
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
+    <noscript>
+      This archive is a React application. Please enable JavaScript, or reach me directly at
+      chrisbenevansleo@gmail.com.
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
