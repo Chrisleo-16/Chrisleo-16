@@ -3,12 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import Layout from "@/components/layout/Layout";
-import { LensProvider } from "@/lib/lens";
 import Index from "@/pages/Index";
 
 /**
  * The home page ships in the main bundle; everything else is split, because a
- * first visitor almost always lands on the story and scrolls.
+ * first visitor almost always lands on the front page and scrolls.
  */
 const BuildDetail = lazy(() => import("@/pages/BuildDetail"));
 const LabPage = lazy(() => import("@/pages/LabPage"));
@@ -29,22 +28,20 @@ export default function App() {
   return (
     <TooltipProvider delayDuration={200}>
       <BrowserRouter>
-        <LensProvider>
-          <Suspense fallback={<RouteFallback />}>
-            <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<Index />} />
-                <Route path="/builds/:slug" element={<BuildDetail />} />
-                <Route path="/lab" element={<LabPage />} />
-                <Route path="/notes" element={<NotesPage />} />
-                <Route path="/notes/:slug" element={<NoteDetail />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/now" element={<NowPage />} />
-                <Route path="*" element={<NotFound />} />
-              </Route>
-            </Routes>
-          </Suspense>
-        </LensProvider>
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Index />} />
+              <Route path="/builds/:slug" element={<BuildDetail />} />
+              <Route path="/lab" element={<LabPage />} />
+              <Route path="/notes" element={<NotesPage />} />
+              <Route path="/notes/:slug" element={<NoteDetail />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/now" element={<NowPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </BrowserRouter>
       <Toaster />
     </TooltipProvider>

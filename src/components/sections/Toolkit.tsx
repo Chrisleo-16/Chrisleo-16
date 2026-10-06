@@ -23,7 +23,7 @@ export default function Toolkit({ num = "08", note, spotlight }: SectionProps) {
             I think with
           </>
         }
-        note={note ?? "Grouped by the kind of question they help me ask. The technology is meant to support the story, not become it."}
+        note={note ?? "Grouped by the kind of question they help me ask."}
       />
 
       <dl className="pt-14 sm:pt-20">

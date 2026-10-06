@@ -16,7 +16,7 @@ const fields = [
  * The close. Not "let's build something exceptional" — an invitation to
  * continue a specific conversation, with the form kept to three hairlines.
  */
-export default function Contact({ num = "11", note, spotlight }: SectionProps) {
+export default function Contact({ num = "03", note }: SectionProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>("idle");
 
@@ -47,31 +47,30 @@ export default function Contact({ num = "11", note, spotlight }: SectionProps) {
   };
 
   return (
-    <section className="gutter pb-24 pt-28 sm:pt-40">
+    <section className="gutter pb-20 pt-20 sm:pt-28">
       <SectionHead
-          spotlight={spotlight}
         id="contact"
         num={num}
-        label="Open thread"
+        label="Contact"
         title={
           <>
-            If any of this
+            Get in
             <br />
-            overlaps with yours
+            touch
           </>
         }
-        note={note ?? "I'm most useful in conversations about payments, property, alternative data, or a problem that hasn't been named yet."}
+        note={note ?? "Usually answered within a day."}
       />
 
-      <div className="grid grid-cols-1 gap-x-16 gap-y-14 pt-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] sm:pt-20">
+      <div className="grid grid-cols-1 gap-x-16 gap-y-10 pt-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] sm:pt-14">
         <Reveal>
           <dl>
             {[
               { k: "Email", v: site.email, href: site.links.email },
               { k: "LinkedIn", v: "Leo Chrisben Evans", href: site.links.linkedin },
               { k: "GitHub", v: "@Chrisleo-16", href: site.links.github },
+              { k: "CV", v: "Download (PDF)", href: site.links.cv },
               { k: "Located", v: `${site.location} · ${site.tzLabel}` },
-              { k: "Studying", v: `${site.study.what}, ${site.study.where}` },
             ].map((row) => (
               <div key={row.k} className="border-t border-rule py-4">
                 <dt>

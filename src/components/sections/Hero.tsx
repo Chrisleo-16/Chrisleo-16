@@ -55,30 +55,29 @@ export default function Hero() {
 
           <EnterRise delay={0.6} className="pt-9 sm:pt-11">
             <p className="max-w-[46ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
-              {site.subthesis}
+              {site.tagline}
             </p>
           </EnterRise>
 
           <EnterRise delay={0.72} className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-8">
             <button
               type="button"
-              onClick={() => go("/#journey")}
+              onClick={() => go("/#builds")}
               className="group flex items-center gap-2.5 text-left"
             >
               <span aria-hidden="true" className="text-annotate">
                 ↓
               </span>
-              <span className="pen-link ui-label">
-                Start at chapter one
-              </span>
+              <span className="pen-link ui-label">See the builds</span>
             </button>
-            <button
-              type="button"
-              onClick={() => go("/#builds")}
+            <a
+              href={site.links.cv}
+              target="_blank"
+              rel="noreferrer noopener"
               className="ui-link"
             >
-              Or go straight to the builds
-            </button>
+              CV (PDF) <span aria-hidden="true">↗</span>
+            </a>
           </EnterRise>
         </div>
 

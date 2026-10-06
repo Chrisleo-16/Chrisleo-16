@@ -32,7 +32,7 @@ export default function Currently({
               the middle of
             </span>
           }
-          note={note ?? "The rest of this site is history. This part is the present tense, and it changes."}
+          note={note ?? "The present tense. This part changes."}
         />
       )}
 

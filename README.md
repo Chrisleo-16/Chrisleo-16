@@ -1,181 +1,117 @@
-# Field Notes — leochrisbenevans.vercel.app
+<div align="center">
+  <a href="https://leochrisbenevans.vercel.app">
+    <img src="https://raw.githubusercontent.com/Chrisleo-16/Chrisleo-16/main/public/media/og-cover.jpg" alt="I'm trying to figure out what technology can actually do. — Leo Chrisben Evans" width="900" />
+  </a>
 
-An archive, not a résumé. The site is built around one shape:
+  <h1>Hi, I'm Leo Chrisben Evans 👋</h1>
 
-> **questions → experiments → builds → failures → lessons → new questions**
+  <a href="https://leochrisbenevans.vercel.app">
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&duration=2800&pause=900&color=C83A1E&center=true&vCenter=true&width=640&lines=Full-stack+developer+in+Nairobi+%F0%9F%87%B0%F0%9F%87%AA;Data+Science+%40+University+of+Nairobi;I+build+payment%2C+property+and+AI+systems;...that+have+to+survive+real+users;Vice+President%2C+Chiromo+Tech+Club" alt="Typing SVG" />
+  </a>
 
-Everything a visitor reads lives in `src/content/`. The components render structure;
-the content files hold the story. Adding a project, an experiment or a note means
-adding an object to an array — nothing else.
+  <p>
+    <a href="https://leochrisbenevans.vercel.app"><img src="https://img.shields.io/badge/Portfolio-leochrisbenevans.vercel.app-C83A1E?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" /></a>
+    <a href="https://www.linkedin.com/in/leo-chrisben-evans-a49570322/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+    <a href="mailto:chrisbenevansleo@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+    <a href="https://leochrisbenevans.vercel.app/files/leo-chrisben-evans-cv.pdf"><img src="https://img.shields.io/badge/CV-PDF-1B1917?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="CV" /></a>
+  </p>
 
----
+  <img src="https://komarev.com/ghpvc/?username=Chrisleo-16&style=flat-square&color=C83A1E&label=profile+views" alt="Profile views" />
+</div>
 
-## Running it
+<br />
 
-```bash
-npm install
-npm run dev        # http://localhost:8080
-npm run build      # production build
-npm run preview    # serve the build
-npm run typecheck  # tsc --noEmit
-npm run lint
-```
+## 🧭 About me
 
-`.env` needs `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` for the
-"Ask the archive" panel. Everything else on the site works without them.
+- 🔭 **Building** [LEA Residency](https://github.com/Chrisleo-16/LEA-Residency) — a property and M-Pesa rent platform running a real Nairobi building, now growing into rent-guarantee infrastructure.
+- 🌱 **Learning** Data Science at the University of Nairobi, and how underwriting actually prices risk.
+- 🔍 **Exploring** alternative data (rent, airtime, till receipts) and where money quietly gets stuck in payment rails.
+- 🤖 **AI, honestly** — I build systems where the model explains the decision but is never allowed to make it.
+- 👥 **Vice President**, Chiromo Tech Club — running build sessions, not talks.
+- 💬 **Ask me about** M-Pesa integrations, idempotent payment webhooks, Supabase row-level security, SMS/USSD products.
+- 📫 **Reach me** at [chrisbenevansleo@gmail.com](mailto:chrisbenevansleo@gmail.com)
 
----
+<br />
 
-## Editing the content
+## 🛠️ Tech stack
 
-| File | What it holds |
-| --- | --- |
-| `src/content/now.ts` | **Edit this most often.** The RIGHT NOW block, the current question, the "last updated" stamp that appears in the hero, footer and rail. |
-| `src/content/site.ts` | Name, links, email, the hero thesis, the "currently exploring" line. |
-| `src/content/chapters.ts` | The journey. Seven chapters; the last one has `open: true` and renders as unfinished. |
-| `src/content/builds.ts` | Case files. Each answers the same seven questions. `featured: true` promotes one to the long-form section. |
-| `src/content/experiments.ts` | The Lab. The counter in the status rail reads the length of this array. |
-| `src/content/postmortems.ts` | Things that didn't work. Four beats each: where, assumed, happened, changed. |
-| `src/content/notes.ts` | Writing. Prefix a body line with `## ` for a sub-heading or `> ` for a pull quote. |
-| `src/content/toolkit.ts` | Tools, grouped by what they let you think about. |
-| `src/content/community.ts` | Chiromo Tech Club. |
-| `src/content/about.ts` | The About page and the "Why I build" passage. |
-| `src/content/lenses.ts` | The reading lenses (see below). |
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,nodejs,py,flask,tailwind,kotlin&perline=9" alt="Build" />
+  </a>
+  <br />
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,supabase,docker,vercel,netlify,git,github&perline=9" alt="Data & infrastructure" />
+  </a>
 
-Files whose header says **DRAFT** were written from your existing site and your
-brief. The facts are yours — project names, stacks, links, what each thing does.
-The narrative around them is a first draft in your voice and should be read and
-corrected, especially the chapter years, the failure stories, and anything in
-`experiments.ts`.
+  <p>
+    <img src="https://img.shields.io/badge/M--Pesa_Daraja-4CAF50?style=flat-square&logoColor=white" alt="M-Pesa Daraja" />
+    <img src="https://img.shields.io/badge/Africa's_Talking-FF6B00?style=flat-square&logoColor=white" alt="Africa's Talking" />
+    <img src="https://img.shields.io/badge/Claude_API-D97757?style=flat-square&logo=anthropic&logoColor=white" alt="Claude API" />
+    <img src="https://img.shields.io/badge/LLM_agents_%26_tool_use-1B1917?style=flat-square" alt="LLM agents and tool use" />
+    <img src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white" alt="n8n" />
+    <img src="https://img.shields.io/badge/Milvus-00A1EA?style=flat-square&logoColor=white" alt="Milvus" />
+    <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" alt="pandas" />
+    <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
+    <img src="https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white" alt="Stripe" />
+  </p>
+</div>
 
----
+<br />
 
-## The lens system
+## 🚀 Featured builds
 
-`src/content/lenses.ts` defines five ways of reading the same page: *curious,
-hire, build, work, LEA*.
+<div align="center">
+  <a href="https://github.com/Chrisleo-16/LEA-Residency">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Chrisleo-16&repo=LEA-Residency&bg_color=F7F2E2&title_color=1B1917&text_color=6D675C&icon_color=C83A1E&border_color=DCD3B8" alt="LEA Residency" />
+  </a>
+  <a href="https://github.com/Chrisleo-16/terramavuno-jice">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Chrisleo-16&repo=terramavuno-jice&bg_color=F7F2E2&title_color=1B1917&text_color=6D675C&icon_color=C83A1E&border_color=DCD3B8" alt="Nielekeze by TerraMavuno" />
+  </a>
+  <br />
+  <a href="https://github.com/Chrisleo-16/usage-metering-and-wifi-billing-capstone">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Chrisleo-16&repo=usage-metering-and-wifi-billing-capstone&bg_color=F7F2E2&title_color=1B1917&text_color=6D675C&icon_color=C83A1E&border_color=DCD3B8" alt="Usage Metering & Billing" />
+  </a>
+  <a href="https://github.com/Chrisleo-16/jua-link">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Chrisleo-16&repo=jua-link&bg_color=F7F2E2&title_color=1B1917&text_color=6D675C&icon_color=C83A1E&border_color=DCD3B8" alt="Jua Link" />
+  </a>
+</div>
 
-A lens **only** does four things:
+| # | Build | What it is | Status |
+| --- | --- | --- | --- |
+| 01 | [**LEA Residency**](https://leochrisbenevans.vercel.app/builds/lea-residency) · [live](https://lea-residency.vercel.app/) | Property and M-Pesa rent platform running a real Nairobi building, plus a listings marketplace for other landlords. | 🟢 Live |
+| 02 | [**Nielekeze**](https://leochrisbenevans.vercel.app/builds/terramavuno-nielekeze) | AI decision-support for Kenyan farmers on a 3D globe. A deterministic engine decides; Claude only explains. 88 tests. | 🧪 Prototype |
+| 03 | [**Usage Metering & Billing**](https://leochrisbenevans.vercel.app/builds/usage-metering) | Metering and billing API: idempotent events, plan quotas, integer-cent pricing, Stripe webhooks. | 🔨 Building |
+| 04 | [**Jua Link**](https://leochrisbenevans.vercel.app/builds/jua-link) | Marketplace for Kenyan artisans where the artisan's whole interface is SMS and USSD. | 🧱 Scaffold |
 
-1. reorders the sections,
-2. marks the ones that answer that reader's question,
-3. rewrites a few section notes,
-4. pulls the relevant case files to the front of the index.
+<div align="center">
+  <a href="https://leochrisbenevans.vercel.app/lab">🧪 Smaller experiments</a> · <a href="https://leochrisbenevans.vercel.app/notes">✍️ Notes from building</a> · <a href="https://leochrisbenevans.vercel.app/about">🙋 The longer story</a>
+</div>
 
-It never adds, removes or duplicates a section — and `src/lib/lens.tsx` appends
-anything a lens forgets to list, so a typo can't drop content off the page.
+<br />
 
-`LensGate` fires on the *first movement away from the hero* — roughly 24% of a
-viewport of scroll, while the hero is still on screen — so nobody reads a screen
-of the archive before being asked. The page freezes exactly where it stands
-(pinned, not `overflow: hidden`, so dismissing doesn't throw you back to the top)
-and frosts over.
+## 📊 GitHub stats
 
-Escape, a click outside, "show me everything", or ~260px of deliberate further
-scrolling all get past it, and it doesn't ask again that session. Momentum from
-the scroll that opened it is ignored for 900ms so it can't dismiss itself.
-Choosing a lens scrolls you to the lens bar, so the reordered archive starts
-directly under your choice.
+<div align="center">
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Chrisleo-16&show_icons=true&hide_border=false&include_all_commits=true&count_private=true&bg_color=F7F2E2&title_color=1B1917&text_color=6D675C&icon_color=C83A1E&border_color=DCD3B8" alt="GitHub stats" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Chrisleo-16&layout=compact&langs_count=8&bg_color=F7F2E2&title_color=1B1917&text_color=6D675C&border_color=DCD3B8" alt="Top languages" />
+  <br />
+  <img src="https://streak-stats.demolab.com?user=Chrisleo-16&background=F7F2E2&border=DCD3B8&ring=C83A1E&fire=C83A1E&currStreakLabel=1B1917&sideLabels=1B1917&currStreakNum=1B1917&sideNums=1B1917&dates=6D675C" alt="GitHub streak" />
+</div>
 
-The choice lives in `sessionStorage` and is linkable: `/?lens=hire`. Clicking
-**View through a lens** in the bar always calls the question back up — useful for
-readers who scrolled past it, and the quickest way to see it again while working
-on the site (otherwise: clear sessionStorage, or open a new tab).
+<br />
 
-Adding a lens is one object in `lenses.ts`.
+## 🤝 Let's connect
 
----
+<div align="center">
+  <a href="https://www.linkedin.com/in/leo-chrisben-evans-a49570322/"><img src="https://img.shields.io/badge/LinkedIn-Leo_Chrisben_Evans-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://github.com/Chrisleo-16"><img src="https://img.shields.io/badge/GitHub-Chrisleo--16-1B1917?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="mailto:chrisbenevansleo@gmail.com"><img src="https://img.shields.io/badge/Gmail-chrisbenevansleo-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
+  <a href="https://leochrisbenevans.vercel.app"><img src="https://img.shields.io/badge/Portfolio-Visit-C83A1E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
 
-## Design system
+  <br /><br />
 
-Two surfaces, one hairline, one accent.
-
-| Token | Light (paper) | Dark (ink) |
-| --- | --- | --- |
-| `--paper` | `#F7F2E2` cream-yellow | `#131211` |
-| `--ink` | `#1B1917` | `#F0EBDC` |
-| `--rule` | `#DCD3B8` hairline | `#2D2A26` |
-| `--muted-ink` | `#6D675C` | `#918A7C` |
-| `--annotate` | `#C83A1E` red pen | `#FF6242` |
-
-The accent is only ever used for things that are *live*, *current*, or *marked by
-hand*: the NOW indicator, the unfinished chapter, the active nav item's
-strike-through, spotlight markers, annotation arrows, link underlines. It is
-never a fill.
-
-### Type
-
-Defined once, in `src/index.css`, as CSS variables:
-
-```css
---font-display: "Plus Jakarta Sans";  /* headlines, navigation, actions */
---font-body:    "Plus Jakarta Sans";  /* body copy */
---font-mono:    "JetBrains Mono";     /* technical metadata only */
---font-story:   "Newsreader";         /* pull quotes and questions */
-```
-
-Use the semantic classes rather than font utilities, so the policy stays in one
-file:
-
-- `.ui-label` / `.ui-link` / `.ui-active` — navigation, buttons, actions
-- `.meta` / `.meta-ink` / `.meta-sm` / `.meta-xs` — labels, timestamps, IDs, tags
-- `.index-num`, `.stack-item`, `.code` — numerals, stack lists, terminal text
-- `.story-quote` — the serif voice
-
-### Motion
-
-Above-the-fold entrances are CSS (`.enter-rise`, `.enter-line`, `.resolve`) so the
-headline paints on the first frame instead of waiting for hydration. Scroll
-reveals use Framer Motion. `prefers-reduced-motion` collapses all of it, including
-animation delays. Nothing loops.
-
----
-
-## Images
-
-The hero photograph is generated, not hand-edited. Sources and scripts live in
-`assets-source/` (not deployed):
-
-```bash
-python assets-source/build-hero-image.py   # -> public/media/chrisben-hero{,-lofi}.webp
-python assets-source/build-og-card.py      # -> public/media/og-cover.jpg
-```
-
-`build-hero-image.py` crops the original, falls the frame away into shadow, and
-dissolves the edges into pixel blocks using a quantised coverage mask. The tiny
-`-lofi` copy is layered on top at load and stepped away, so the picture appears to
-rebuild itself from its own pixels. `assets-source/subject-polygon.py` holds the
-traced silhouette if you ever need to re-mask.
-
-To swap the photograph: replace `assets-source/portrait-original.jpeg`, adjust
-`BOX` in the build script, and re-run both scripts.
-
----
-
-## Architecture
-
-```
-src/
-  content/     every visible word, plus the lens definitions
-  components/
-    kit/       Editorial primitives (Label, SectionHead, Flow, Pull, Mark) + motion + Seo
-    layout/    Nav, Footer, StatusRail, ThemeToggle, Layout
-    sections/  one file per home-page section, all sharing SectionProps
-    ui/        the three shadcn components still in use (toast, toaster, tooltip)
-  pages/       Index, BuildDetail, LabPage, NotesPage, NoteDetail, AboutPage, NowPage, NotFound
-  lib/         lens context, section navigation, cn()
-```
-
-- Vite + React 18 + TypeScript + Tailwind + Framer Motion.
-- The home page ships in the main bundle; every other route is lazy. The assistant
-  (and with it the Supabase client) and the mailer are only fetched when used.
-- Per-route metadata, canonical URLs and JSON-LD come from `components/kit/Seo.tsx`.
-  `public/sitemap.xml` is checked in — regenerate it when you add a build or a note.
-- `vercel.json` handles SPA rewrites and asset caching.
-
-## Ask the archive
-
-`supabase/functions/chris-bot/index.ts` is the assistant behind the status rail.
-Its system prompt is a condensed copy of `src/content/*` — **when the story
-changes, change the prompt too**, or it will confidently describe a version of you
-that no longer exists.
+  <i>Built, broken and rebuilt in Nairobi 🇰🇪</i>
+  <br />
+  <sub>This repo is also the source of <a href="https://leochrisbenevans.vercel.app">leochrisbenevans.vercel.app</a>. Developer notes live in <a href="docs/DEVELOPMENT.md">docs/DEVELOPMENT.md</a>.</sub>
+</div>

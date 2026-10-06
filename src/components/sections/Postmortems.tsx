@@ -31,7 +31,7 @@ export default function Postmortems({ num = "05", note, spotlight }: SectionProp
             didn&apos;t work
           </>
         }
-        note={note ?? "Eight places where reality corrected a belief. Kept here on purpose — this is the part of the record that actually shows how I think."}
+        note={note ?? "Four places where reality corrected a belief. This is the part that shows how I think."}
       />
 
       <ol className="grid grid-cols-1 gap-x-16 pt-14 lg:grid-cols-2 sm:pt-20">

@@ -70,6 +70,10 @@ export interface CaseFile {
   accent: "ledger" | "map" | "meter" | "signal";
   featured?: boolean;
 
+  // ── The front page row ──
+  /** One line, under twenty words. What it is and who it's for. */
+  tagline: string;
+
   // ── The card ──
   /** One sentence. The problem or curiosity that caused this to exist. */
   question: string;
@@ -157,13 +161,4 @@ export interface NowState {
   chapter: string;
   question: string;
   blocks: { label: string; lines: string[] }[];
-}
-
-export interface CommunityEntry {
-  org: string;
-  role: string;
-  period: string;
-  premise: string;
-  body: string[];
-  doing: string[];
 }

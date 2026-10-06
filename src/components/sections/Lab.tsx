@@ -86,7 +86,7 @@ export default function Lab({
             answered cheaply
           </>
         }
-        note={note ?? "Not everything needs to become a product. Most of these took a weekend and half of them were dropped — which is the correct ratio."}
+        note={note ?? "Most of these took a weekend. Half were dropped, which is the right ratio."}
       />
 
       <div className="flex flex-wrap items-baseline justify-between gap-4 pt-12 sm:pt-16">

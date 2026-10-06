@@ -12,11 +12,17 @@ export const site = {
   /** The hero. A position, not a job title. */
   thesis: "I'm trying to figure out what technology can actually do.",
   subthesis:
-    "I build software, experiment with AI, study data and read markets — turning problems I run into on purpose into things I can actually test.",
+    "I build software, experiment with AI and study data — turning problems I run into on purpose into things I can actually test.",
   standfirst:
     "A portfolio of things I'm building while working out what kind of builder I want to become.",
 
+  /** One line under the headline, for someone deciding in ten seconds. */
+  tagline: "Full-stack developer and data science student in Nairobi. I build payment, property and AI systems that have to survive real users.",
+
   exploring: ["AI", "DATA", "FINTECH", "REAL-WORLD SYSTEMS"],
+
+  /** The stack line on the front page. Nine things, not everything. */
+  stack: ["TypeScript", "React", "Next.js", "Node.js", "Python", "PostgreSQL", "Supabase", "M-Pesa Daraja", "Claude API"],
 
   study: {
     what: "BSc Data Science",

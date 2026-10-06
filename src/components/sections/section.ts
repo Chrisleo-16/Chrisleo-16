@@ -1,9 +1,9 @@
-/** Every home-page section is positioned and annotated by the lens layer. */
+/** Every home-page section is numbered by the page in reading order. */
 export type SectionProps = {
-  /** Running index, assigned by the page in the current reading order. */
+  /** Running index, assigned by the page. */
   num?: string;
-  /** Section note, possibly rewritten for the active lens. */
+  /** Optional one-line note under the section label. */
   note?: string;
-  /** True when the active lens says this section answers the reader. */
+  /** Kept for the shared SectionHead signature; unused on the home page. */
   spotlight?: boolean;
 };

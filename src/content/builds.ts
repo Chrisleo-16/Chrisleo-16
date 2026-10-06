@@ -1,4 +1,4 @@
-import type { CaseFile, Theme } from "./types";
+import type { CaseFile } from "./types";
 
 /**
  * Four builds, written from the repositories rather than from memory.
@@ -12,16 +12,6 @@ import type { CaseFile, Theme } from "./types";
  * the strongest single idea, the infrastructure underneath both, and the small
  * honest one. Change `index` and the array order together.
  */
-
-export const THEMES: { key: Theme | "all"; label: string }[] = [
-  { key: "all", label: "All" },
-  { key: "ai", label: "AI" },
-  { key: "data", label: "Data" },
-  { key: "infrastructure", label: "Infrastructure" },
-  { key: "fintech", label: "Fintech" },
-  { key: "real-world", label: "Real world" },
-  { key: "experiments", label: "Experiments" },
-];
 
 export const builds: CaseFile[] = [
   /* ───────────────────────────────────────────────────────────────────────── */
@@ -62,10 +52,12 @@ export const builds: CaseFile[] = [
       { k: "Status", v: "Live, still changing" },
     ],
 
+    tagline:
+      "Property and M-Pesa rent platform running a real Nairobi building, plus a listings marketplace for other landlords.",
     question:
       "Why does a building still run on phone calls, a WhatsApp group and a hardcover ledger — and what happens to software once you actually put it inside one?",
     built:
-      "A property platform that is two things at once: the portal for one Nairobi residency, and a listings marketplace other Kenyan landlords can use. M-Pesa rent with automatic ledger reconciliation, maintenance and complaints with a status trail, realtime tenant–management chat, a KRA tax ledger, and an offline queue so a payment survives a dead network.",
+      "A property platform for one Nairobi residency that doubles as a listings marketplace for other landlords. M-Pesa rent with automatic reconciliation, maintenance with a status trail, tenant chat, and an offline queue so a payment survives a dead network.",
     taught:
       "The interface was never the product; the operations were. Every genuinely hard problem in LEA turned out to be about money arriving, or not arriving, and who is accountable for the difference.",
 
@@ -96,10 +88,6 @@ export const builds: CaseFile[] = [
           title: "The marketplace is reverse-matched",
           body: "Instead of letting every landlord contact a house-hunting tenant, the tenant broadcasts budget, area and move-in date; landlords with a matching vacancy get a notification and pitch in-app; the tenant gets one curated SMS digest a night from a cron job. The constraint being designed around is the tenant's attention, not the landlord's reach.",
         },
-        {
-          title: "Wi-Fi as a line item",
-          body: "Building Wi-Fi is billed through the same rails as rent, flagged per tenant in the rent settings and tagged on the payment. It behaves nothing like rent — it is consumption, not a fixed monthly claim — and that difference is what sent me off to build a metering engine properly.",
-        },
       ],
     },
 
@@ -109,7 +97,6 @@ export const builds: CaseFile[] = [
     learned: [
       "That the phone call is the competition. A property manager will use the system only while it is faster than picking one up, which turns interface work into a latency problem rather than a features problem.",
       "That idempotency is a decision you make before the first webhook, not a patch you apply after the first double-credit.",
-      "That the moment I added a Wi-Fi line, I had accidentally started billing consumption — and I had none of the vocabulary for it. Quota, metering, unit price, period boundary. That gap is the next build.",
     ],
 
     ledTo:
@@ -188,10 +175,12 @@ export const builds: CaseFile[] = [
       { k: "Runs", v: "With zero API keys" },
     ],
 
+    tagline:
+      "AI decision-support for Kenyan farmers on a 3D globe. A deterministic engine decides; Claude only explains. 88 tests.",
     question:
       "Can an AI system help someone navigate a real government programme without ever being allowed to invent the answer?",
     built:
-      "A geospatial decision-support system. A registered Kenyan smallholder asks — by text or voice, in English or Kiswahili — whether they qualify for subsidised fertiliser, what they will pay and which depot to go to. A deterministic engine decides. Claude only explains the decision it was handed, citing the evidence behind every fact, while driving a 3D globe to the ward under discussion.",
+      "A geospatial decision-support system. A Kenyan smallholder asks — by text or voice, in English or Kiswahili — whether they qualify for subsidised fertiliser. A deterministic engine decides; Claude only explains the decision it was handed, citing the evidence behind every fact.",
     taught:
       "The most important feature of an intelligent system is knowing when it doesn't know — and having somewhere structural to put that, rather than a hedge in the prose.",
 
@@ -222,14 +211,6 @@ export const builds: CaseFile[] = [
           body: "Decision precedence runs: any unknown eligibility input returns cannot-determine; any failed criterion returns a confirmed negative, because a confirmed 'no' is still confirmed; and unverified depot stock returns 'indicated by published rules' with an honest-uncertainty sentence attached. That sentence is asserted character-for-character by a test, so it cannot quietly drift.",
         },
         {
-          title: "Three provenance axes, not one confidence score",
-          body: "Every fact carries authority, derivation and freshness independently. 'Official' is a claim about who says so; 'live' is a claim about when. Collapsing them into one word loses the distinction, and collapsing them into a percentage is worse — in the repo's own words, an uncalibrated number is false precision dressed as rigour. There is deliberately no AI-confidence figure anywhere in the interface.",
-        },
-        {
-          title: "One tool registry, two brains",
-          body: "Text chat and the voice agent share a single tool array, adapted to each provider's schema shape. A tool contract cannot drift between the two surfaces because there is only one contract.",
-        },
-        {
           title: "It degrades rather than fails",
           body: "With zero API keys the globe, the evidence layers and the entire eligibility journey still run on bundled data. If the database is unreachable the provider times out at 1.5 seconds and serves a snapshot, flagging the response as bundled. If the model is down, the result card still renders. Nothing returns a 500.",
         },
@@ -242,7 +223,6 @@ export const builds: CaseFile[] = [
     learned: [
       "That 'who decides' and 'who explains' are different jobs, and that most AI products fail by handing both to the model. Once the boundary is architectural, honesty stops being a prompt-engineering problem.",
       "That uncertainty needs somewhere to live in the type system, not just in the wording. Because the decision type has a cannot-determine case, every consumer — the card, the model, the tests — is forced to handle it.",
-      "That provenance is more than one adjective, and that refusing to print a confidence percentage is a product decision worth defending out loud.",
     ],
 
     ledTo:
@@ -297,10 +277,12 @@ export const builds: CaseFile[] = [
       { k: "Money", v: "Integer cents, rounded once" },
     ],
 
+    tagline:
+      "Usage metering and billing API: idempotent events, plan quotas, integer-cent pricing, Stripe webhooks.",
     question:
       "How do you build a system that knows exactly what someone consumed, decides whether they are allowed any more, and turns that into money — while the network keeps retrying the same request?",
     built:
-      "Billing middleware. Every billable action — an API call, or a batch of AI tokens — is recorded exactly once, checked against the tenant's monthly plan quota, priced in integer cents, and kept in sync with Stripe's view of the subscription through test-mode webhooks.",
+      "Billing middleware. Every billable action is recorded exactly once, checked against the tenant's monthly quota, priced in integer cents, and kept in sync with Stripe through test-mode webhooks.",
     taught:
       "Correctness in billing is almost entirely about boundaries: which request counts as the same request, which one is the last one you are allowed, and where exactly the rounding happens.",
 
@@ -332,10 +314,6 @@ export const builds: CaseFile[] = [
           title: "Round once, at the end",
           body: "Input, cached input and output tokens are priced independently in Decimal and summed, then rounded to the nearest cent exactly once, so per-category rounding never compounds into a wrong total. Reasoning tokens are billed at the output rate rather than as a separate category, and the pricing source is cited in the repo with the date it was read.",
         },
-        {
-          title: "The non-goal is written down",
-          body: "There is no auth. Tenant identity arrives in a trusted header, and the design doc says so, in a section headed non-goal, with the reasoning. An unstated shortcut is a bug; a stated one is a scope decision.",
-        },
       ],
     },
 
@@ -345,7 +323,6 @@ export const builds: CaseFile[] = [
     learned: [
       "Put the invariant where it cannot be raced. If a rule is only correct when two things don't happen simultaneously, it isn't a rule yet.",
       "Write the boundary condition down. 'Does the limit mean at-most or fewer-than?' is the kind of question that quietly costs somebody money, and it takes one sentence to settle.",
-      "State your non-goals. The most useful section of that design document is the one listing what it deliberately does not do.",
     ],
 
     ledTo:
@@ -390,10 +367,12 @@ export const builds: CaseFile[] = [
       { k: "Scale", v: "Honest — a scaffold" },
     ],
 
+    tagline:
+      "Marketplace for Kenyan artisans where the artisan's whole interface is SMS and USSD. One order loop, two front doors.",
     question:
       "Can somebody with a feature phone and no data run their side of a business on the same system as somebody with a browser?",
     built:
-      "A marketplace connecting customers to Kenyan artisans, where the artisan's entire interface is SMS. A customer submits an order from the web or over USSD; the artisan receives a text and replies 1, 2 or 3; the reply moves the order and notifies the customer. It is a scaffold, and the repo says so on its first line.",
+      "A marketplace connecting customers to Kenyan artisans, where the artisan's entire interface is SMS. A customer orders from the web or USSD; the artisan replies 1, 2 or 3; the reply moves the order. It is a scaffold, and the repo says so.",
     taught:
       "Constraints are a design tool. A flow that has to survive a menu with no session and a reply of one character forces you to be honest about what the flow actually is.",
 
@@ -422,10 +401,6 @@ export const builds: CaseFile[] = [
           body: "An artisan can have several open requests, and a bare '1' doesn't say which. Matching to the newest would let a flood of new requests push an older one out of reach of a reply that was meant for it. FIFO is also the version you can explain to a coordinator staring at a mismatch. The reasoning is in the README, which I'd defend more than the rule itself.",
         },
         {
-          title: "Idempotency on the provider's id",
-          body: "Inbound messages are deduplicated on the provider's message id with a unique index, and every inbound message is logged before it is understood — so a parse failure leaves a record rather than a silence.",
-        },
-        {
           title: "A mock mode that exercises the real path",
           body: "Leave the gateway credentials blank and sends log to the console while still writing to the messages table, so the entire loop is testable without an account or a real phone. It is the difference between a flow I had reasoned about and one I had watched work.",
         },
@@ -437,7 +412,6 @@ export const builds: CaseFile[] = [
 
     learned: [
       "Honest scale. This is a scaffold, the README says so and lists what is not built, and that turns out to be far more useful to a reader than a paragraph implying a company.",
-      "Write down why a rule was chosen, not only what it is. The FIFO note is three sentences and it is the only reason anyone else could safely change that behaviour.",
       "Build the mock mode early. A loop you can run without credentials is a loop you will actually run.",
     ],
 
@@ -451,29 +425,6 @@ export const builds: CaseFile[] = [
         via: "The USSD and SMS surface there is this idea, applied to a different problem.",
       },
     ],
-  },
-];
-
-/**
- * What repeats across the four. Ideas, not technologies — and each one has to be
- * pointable at specific code in at least three of the builds.
- */
-export const repeatingIdeas = [
-  {
-    title: "Systems that decide something about a person",
-    body: "Eligibility, a quota, a rent balance, whether an order was accepted. All four end in a verdict somebody is affected by, which is why so much of the work turns out to be in being able to justify it afterwards.",
-  },
-  {
-    title: "One place that decides what a thing means",
-    body: "A single tool registry. A single order-creation function. A status vocabulary in one module. Rules in engines rather than route handlers. I keep arriving at the same fix for the same class of bug.",
-  },
-  {
-    title: "The convenient answer isn't allowed to stand in for the true one",
-    body: "Cannot-determine instead of a confident guess. The original stored response instead of a second charge. A confirmed negative that is still confirmed. Different systems, identical instinct.",
-  },
-  {
-    title: "Everything assumes the network fails",
-    body: "Bundled data when the database is unreachable. An offline queue with backoff. Idempotency keyed on the provider's own reference. A mock mode so the loop runs with nothing configured at all.",
   },
 ];
 

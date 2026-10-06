@@ -64,7 +64,7 @@ export default function NotesPreview({
             so I stop relearning it
           </>
         }
-        note={note ?? "Short pieces, usually written straight after something broke. Not a content strategy."}
+        note={note ?? "Short pieces, usually written straight after something broke."}
       />
 
       <ol className="pt-14 sm:pt-20">

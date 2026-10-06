@@ -18,12 +18,9 @@ export type SectionKey =
   | "now"
   | "journey"
   | "builds"
-  | "lea"
   | "broke"
   | "lab"
-  | "community"
   | "tools"
-  | "why"
   | "writing"
   | "contact";
 
@@ -31,12 +28,9 @@ export const DEFAULT_ORDER: SectionKey[] = [
   "now",
   "journey",
   "builds",
-  "lea",
   "broke",
   "lab",
-  "community",
   "tools",
-  "why",
   "writing",
   "contact",
 ];
@@ -68,27 +62,12 @@ export const lenses: Lens[] = [
     key: "curious",
     label: "Curious",
     full: "Just curious",
-    intro:
-      "Then read it as a story. The builds are only evidence — the argument is in the chapters.",
-    order: [
-      "journey",
-      "why",
-      "now",
-      "lab",
-      "writing",
-      "builds",
-      "lea",
-      "broke",
-      "community",
-      "tools",
-      "contact",
-    ],
-    spotlight: ["journey", "why", "now", "lab", "writing"],
+    intro: "Then read it as a story. The builds are only evidence — the argument is in the chapters.",
+    order: ["journey", "now", "lab", "writing", "builds", "broke", "tools", "contact"],
+    spotlight: ["journey", "now", "lab", "writing"],
     notes: {
-      journey:
-        "Start here. Seven chapters, each opening with the question that started it and closing with the thing that changed my mind.",
-      lab: "The offcuts. Small questions answered over a weekend and mostly thrown away.",
-      writing: "How I think, in about four minutes a piece.",
+      journey: "Start here. Each chapter opens with a question and closes with what changed my mind.",
+      lab: "Small questions answered over a weekend and mostly thrown away.",
       builds: "Four systems. Read the question at the top of each and skip the rest if you like.",
     },
   },
@@ -96,16 +75,15 @@ export const lenses: Lens[] = [
     key: "hire",
     label: "Hire",
     full: "Looking to hire",
-    intro:
-      "Then here are the two strongest, what I build with, and the fastest route to the CV. The rest of the archive stays where it is if you want it.",
+    intro: "Then here are the two strongest builds, what I build with, and the CV.",
     // A short path on purpose: two builds, the toolkit, then straight to the footer.
     focus: ["builds", "tools"],
     maxBuilds: 2,
     spotlight: ["builds", "tools"],
     notes: {
       builds:
-        "Two of four. A live property and payments platform that has been running long enough to change shape twice, and a decision system built so that an AI model is never allowed to produce the verdict.",
-      tools: "What I actually reach for, and what each set of tools is for.",
+        "Two of four. A live property and payments platform, and a decision system where the AI model is never allowed to produce the verdict.",
+      tools: "What I actually reach for, and what each set is for.",
     },
     action: { label: "Download CV (PDF)", href: "/files/leo-chrisben-evans-cv.pdf", external: true },
   },
@@ -113,27 +91,12 @@ export const lenses: Lens[] = [
     key: "build",
     label: "Build",
     full: "Want to build together",
-    intro:
-      "Then skip the history. Here's what's open, what I'm testing, and where I think the interesting problem is.",
-    order: [
-      "now",
-      "lab",
-      "lea",
-      "builds",
-      "writing",
-      "why",
-      "journey",
-      "broke",
-      "tools",
-      "community",
-      "contact",
-    ],
-    spotlight: ["now", "lab", "lea", "writing", "contact"],
+    intro: "Then skip the history. Here's what's open and what I'm testing.",
+    order: ["now", "lab", "builds", "writing", "journey", "broke", "tools", "contact"],
+    spotlight: ["now", "lab", "builds", "contact"],
     notes: {
-      now: "The live state — what's being built, what I'm reading, and the question I can't put down.",
+      now: "What's being built, and the question I can't put down.",
       lab: "Open questions with cheap answers. Several of these want a second person.",
-      lea: "The one I'm actually betting on, including the part of it that isn't built yet.",
-      builds: "Four systems, and the single thread running through all of them.",
       contact: "Easiest way in: tell me what you're stuck on.",
     },
   },
@@ -142,55 +105,13 @@ export const lenses: Lens[] = [
     label: "Work",
     full: "Interested in my work",
     intro: "Then go straight to the builds. Each one is a decision trail, not a screenshot.",
-    order: [
-      "builds",
-      "lea",
-      "lab",
-      "broke",
-      "tools",
-      "journey",
-      "writing",
-      "why",
-      "now",
-      "community",
-      "contact",
-    ],
-    spotlight: ["builds", "lea", "lab", "broke", "tools"],
+    order: ["builds", "lab", "broke", "tools", "journey", "writing", "now", "contact"],
+    spotlight: ["builds", "lab", "broke", "tools"],
     notes: {
-      builds:
-        "Eight numbered parts each: the question, the idea, the build, the architecture, the hard part, the lesson, where it led, and what you can go and inspect.",
-      lea: "The one with the full evolution chain — property management through to a financial question.",
+      builds: "Each opens with the question that caused it. The full case file is one click in.",
       lab: "Smaller technical experiments, with the outcome stated honestly.",
     },
     action: { label: "GitHub", href: "https://github.com/Chrisleo-16", external: true },
-  },
-  {
-    key: "lea",
-    label: "LEA",
-    full: "Here for LEA",
-    intro:
-      "Then the important part isn't what LEA is. It's why it stopped being a property app four times over.",
-    order: [
-      "lea",
-      "builds",
-      "broke",
-      "now",
-      "journey",
-      "lab",
-      "writing",
-      "why",
-      "tools",
-      "community",
-      "contact",
-    ],
-    spotlight: ["lea", "broke", "now", "journey"],
-    notes: {
-      lea: "The whole arc: the early idea, what real payment behaviour did to it, the pivot, and the direction I'm investigating now.",
-      builds: "LEA in full, plus the three builds it sent me off to make.",
-      broke: "The specific failures that moved it — duplicate callbacks, partial rent, the Wi-Fi detour.",
-      now: "Where the thesis stands today, and what still has to be proven.",
-      journey: "Chapters 04 and 05 are the LEA years.",
-    },
   },
 ];
 

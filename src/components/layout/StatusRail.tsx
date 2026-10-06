@@ -3,7 +3,6 @@ import { site } from "@/content/site";
 import { now } from "@/content/now";
 import { experimentCount } from "@/content/experiments";
 import ThemeToggle from "./ThemeToggle";
-import { useLens } from "@/lib/lens";
 
 /**
  * The rail along the bottom of every page. This is the "the archive is alive"
@@ -14,7 +13,6 @@ import { useLens } from "@/lib/lens";
  * floating chat bubble anywhere on this site.
  */
 export default function StatusRail() {
-  const { lens } = useLens();
   const [clock, setClock] = useState("--:--");
   const [progress, setProgress] = useState(0);
   const frame = useRef<number>();
@@ -80,11 +78,6 @@ export default function StatusRail() {
             <span className="hidden meta-sm text-muted-foreground xl:inline">
               Experiments {String(experimentCount).padStart(3, "0")}
             </span>
-            {lens && (
-              <span className="hidden meta-sm text-annotate md:inline">
-                Lens / {lens.label}
-              </span>
-            )}
           </div>
 
           <div className="flex items-center gap-4 whitespace-nowrap sm:gap-6">
