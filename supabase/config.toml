@@ -1,4 +1,0 @@
-project_id = "rdnthaxyumeroswraffi"
-
-[functions.chris-bot]
-verify_jwt = false

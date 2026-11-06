@@ -1,9 +1,9 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 
 /**
- * The assistant pulls in the Supabase client, which is far too much weight to
- * ship to someone who just wants to read. It is fetched the first time anyone
- * asks for it from the status rail, and not a moment earlier.
+ * The assistant is its own chunk, fetched the first time anyone asks for it
+ * from the status rail and not a moment earlier. Someone who just wants to
+ * read never downloads it.
  */
 const ArchiveBot = lazy(() => import("./ArchiveBot"));
 

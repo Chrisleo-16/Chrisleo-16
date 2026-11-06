@@ -23,8 +23,10 @@ npm run typecheck  # tsc --noEmit
 npm run lint
 ```
 
-`.env` needs `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` for the
-"Ask the archive" panel. Everything else on the site works without them.
+The "Ask the archive" panel needs `ANTHROPIC_API_KEY` (see `.env.example`).
+Vite's dev server does not run the `api/` function, so to test the panel locally
+use `npx vercel dev` instead of `npm run dev`. Everything else on the site works
+without the key.
 
 ---
 
@@ -163,7 +165,18 @@ src/
 
 ## Ask the archive
 
-`supabase/functions/chris-bot/index.ts` is the assistant behind the status rail.
-Its system prompt is a condensed copy of `src/content/*` — **when the story
-changes, change the prompt too**, or it will confidently describe a version of you
-that no longer exists.
+`api/chat.ts` is the assistant behind the status rail: a Vercel function that
+holds the Anthropic key and calls `claude-opus-5-5`. It is stateless. The
+conversation lives in the visitor's sessionStorage and nothing is stored
+server-side.
+
+Its system prompt is `api/_prompt.ts`, a condensed copy of `src/content/*` —
+**when the story changes, change the prompt too**, or it will confidently
+describe a version of you that no longer exists. On top of that prompt the
+function adds a live list of your public GitHub repos (cached an hour) and a
+web search tool locked to `github.com` and this site, used only as a fallback.
+
+Secrets live in Vercel: Project → Settings → Environment Variables →
+`ANTHROPIC_API_KEY` (and optionally `GITHUB_TOKEN` for a higher GitHub rate
+limit). Redeploy after adding them. The key never goes in a `VITE_` variable:
+those ship to the browser.

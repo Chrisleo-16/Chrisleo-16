@@ -1,19 +1,13 @@
-import "https://deno.land/x/xhr@0.1.0/mod.ts";
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
-
 /**
- * "Ask the archive" — the index for leochrisbenevans.vercel.app.
+ * System prompt for "Ask the archive".
  *
- * Keep this in sync with `src/content/*`. If a build, failure or current
+ * Keep this in sync with src/content/*. If a build, failure or current
  * project changes on the site, change it here too, or the assistant will
  * confidently describe a version of Chrisben that no longer exists.
+ *
+ * The leading underscore keeps Vercel from deploying this file as a function.
  */
-const systemPrompt = `You are THE ARCHIVE — the index for Leo Chrisben Evans's personal site. The site is not a résumé; it is a field journal of a young builder in Nairobi working out what technology can actually do.
+export const systemPrompt = `You are THE ARCHIVE — the index for Leo Chrisben Evans's personal site. The site is not a résumé; it is a field journal of a young builder in Nairobi working out what technology can actually do.
 
 VOICE
 - Dry, warm, specific. Confident but never salesy. You are a knowledgeable friend of his, not a brand.
@@ -63,74 +57,3 @@ HOW TO BEHAVE
 - If asked about the variety of domains, explain it as one narrowing problem, not scattered interests.
 - If asked how to reach him: chrisbenevansleo@gmail.com, or the form at the bottom of the page.
 - If asked something the archive doesn't cover, say so plainly and suggest what to read instead.`;
-
-serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
-
-  try {
-    const { messages } = await req.json();
-    if (!Array.isArray(messages)) {
-      return new Response(JSON.stringify({ error: "messages must be an array" }), {
-        status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
-
-    // Only the last few turns are needed, and it keeps the prompt cheap.
-    const trimmed = messages.slice(-10).map((m: { role: string; content: string }) => ({
-      role: m.role === "user" ? "user" : "assistant",
-      content: String(m.content ?? "").slice(0, 2000),
-    }));
-
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
-        messages: [{ role: "system", content: systemPrompt }, ...trimmed],
-        temperature: 0.7,
-        max_tokens: 320,
-      }),
-    });
-
-    if (!response.ok) {
-      if (response.status === 429) {
-        return new Response(
-          JSON.stringify({ error: "Too many questions at once. Give it a second." }),
-          { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } },
-        );
-      }
-      if (response.status === 402) {
-        return new Response(JSON.stringify({ error: "The archive is out of credits." }), {
-          status: 402,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
-      }
-      console.error("AI gateway error:", response.status, await response.text());
-      return new Response(JSON.stringify({ error: "AI gateway error" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    const data = await response.json();
-    const reply = data?.choices?.[0]?.message?.content;
-    if (!reply) throw new Error("Empty reply from gateway");
-
-    return new Response(JSON.stringify({ reply }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  } catch (e) {
-    console.error("Archive error:", e);
-    return new Response(
-      JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
-    );
-  }
-});

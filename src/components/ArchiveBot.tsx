@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/kit/Editorial";
 
@@ -11,6 +10,19 @@ interface Message {
 
 const OPENING =
   "Niaje. I'm the index for this archive — I know the builds, the wrong turns and what Chrisben is currently chasing.\n\nAsk in English, Swahili or Sheng. Ni sawa either way.";
+
+const STORAGE_KEY = "archive:chat";
+
+function loadHistory(): Message[] {
+  try {
+    const raw = window.sessionStorage.getItem(STORAGE_KEY);
+    const parsed = raw ? (JSON.parse(raw) as Message[]) : null;
+    if (Array.isArray(parsed) && parsed.length) return parsed;
+  } catch {
+    /* storage unavailable or corrupt — start fresh */
+  }
+  return [{ role: "assistant", content: OPENING }];
+}
 
 const PROMPTS = [
   { label: "Why the pivot?", msg: "Why did LEA pivot from property management to rent guarantee?" },
@@ -25,10 +37,14 @@ const PROMPTS = [
  * Opened from the status rail — there is deliberately no floating bubble on
  * this site. Styled as a terminal panel because that's what it is: a query
  * interface over the same content the pages are built from.
+ *
+ * Talks to `/api/chat` (a Vercel function that holds the Anthropic key). The
+ * conversation lives in sessionStorage for the length of the visit and is
+ * never stored server-side.
  */
 export default function ArchiveBot({ initialOpen = false }: { initialOpen?: boolean }) {
   const [open, setOpen] = useState(initialOpen);
-  const [messages, setMessages] = useState<Message[]>([{ role: "assistant", content: OPENING }]);
+  const [messages, setMessages] = useState<Message[]>(loadHistory);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
@@ -55,6 +71,11 @@ export default function ArchiveBot({ initialOpen = false }: { initialOpen?: bool
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+    try {
+      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-40)));
+    } catch {
+      /* private mode or quota — history just won't survive a refresh */
+    }
   }, [messages, reduce]);
 
   const send = async (text?: string) => {
@@ -65,14 +86,18 @@ export default function ArchiveBot({ initialOpen = false }: { initialOpen?: bool
     setInput("");
     setBusy(true);
     try {
-      const { data, error } = await supabase.functions.invoke("chris-bot", {
-        body: { messages: next.filter((m) => m.content !== OPENING) },
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: next.filter((m) => m.content !== OPENING) }),
       });
-      if (error) throw error;
-      if (data?.reply) setMessages((p) => [...p, { role: "assistant", content: data.reply }]);
-    } catch {
+      const data = (await res.json().catch(() => ({}))) as { reply?: string; error?: string };
+      if (!res.ok || !data.reply) throw new Error(data.error || `HTTP ${res.status}`);
+      setMessages((p) => [...p, { role: "assistant", content: data.reply as string }]);
+    } catch (err) {
+      const soft = err instanceof Error && /^(Too many|The archive)/.test(err.message);
       toast({
-        title: "The index is offline",
+        title: soft ? (err as Error).message : "The index is offline",
         description: "Try again in a moment, or just keep reading — it's all on the page.",
         variant: "destructive",
       });
