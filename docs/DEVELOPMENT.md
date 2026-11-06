@@ -170,7 +170,7 @@ holds the Anthropic key and calls `claude-opus-5-5`. It is stateless. The
 conversation lives in the visitor's sessionStorage and nothing is stored
 server-side.
 
-Its system prompt is `api/_prompt.ts`, a condensed copy of `src/content/*` —
+Its system prompt sits at the top of `api/chat.ts`, a condensed copy of `src/content/*` —
 **when the story changes, change the prompt too**, or it will confidently
 describe a version of you that no longer exists. On top of that prompt the
 function adds a live list of your public GitHub repos (cached an hour) and a
